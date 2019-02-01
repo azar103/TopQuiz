@@ -11,11 +11,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.zarrouk.anis.topquiz.R;
+import com.zarrouk.anis.topquiz.model.Question;
+import com.zarrouk.anis.topquiz.model.QuestionBank;
+import com.zarrouk.anis.topquiz.model.User;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mGreetingText;
     private EditText mNameInput;
     private Button   mPlayBtn;
+    private User mUser;
+    private QuestionBank mQuestionBank;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mNameInput = (EditText) findViewById(R.id.activity_main_name_input);
         mPlayBtn = (Button) findViewById(R.id.activity_main_play_btn);
         mPlayBtn.setEnabled(false);
+        mUser = new User();
         mNameInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -46,9 +55,15 @@ public class MainActivity extends AppCompatActivity {
         mPlayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                   String firstName = mNameInput.getText().toString();
+                   mUser.setFirstName(firstName);
                    Intent GameActivityIntent = new Intent(MainActivity.this, GameActivity.class);
                    startActivity(GameActivityIntent);
             }
         });
+
+
     }
+
+
 }
