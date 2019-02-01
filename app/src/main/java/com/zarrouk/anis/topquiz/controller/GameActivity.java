@@ -1,9 +1,11 @@
-package com.zarrouk.anis.topquiz;
+package com.zarrouk.anis.topquiz.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.zarrouk.anis.topquiz.R;
 
 public class GameActivity extends AppCompatActivity {
     private TextView mQuestionText;
