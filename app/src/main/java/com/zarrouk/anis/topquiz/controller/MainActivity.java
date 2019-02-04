@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
         if(GAME_ACTIVITY_REQUEST_CODE == requestCode && resultCode == RESULT_OK){
             int score = data.getIntExtra(GameActivity.BUNDLE_EXTRA_SCORE, 0);
+            //stocker le score dans les preferences
             mPreferences.edit().putInt(PREF_KEY_SCORE,score).apply();
+            //recuper le nom stocké
             String firstName = getPreferences(MODE_PRIVATE).getString(PREF_kEY_FIRST_NAME, null);
             greetUser();
         }
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                    String firstName = mNameInput.getText().toString();
                    mUser.setFirstName(firstName);
+                   //stocker le nom dans les preferences
                    mPreferences.edit().putString(PREF_kEY_FIRST_NAME,mUser.getFirstName()).apply();
                    Intent gameActivityIntent = new Intent(MainActivity.this, GameActivity.class);
                    startActivityForResult(gameActivityIntent, GAME_ACTIVITY_REQUEST_CODE);
