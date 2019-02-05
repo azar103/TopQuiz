@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
         String firstName = getPreferences(MODE_PRIVATE).getString(PREF_kEY_FIRST_NAME, null);
         int score = getPreferences(MODE_PRIVATE).getInt(PREF_KEY_SCORE, 0);
 
-
         mGreetingText = (TextView) findViewById(R.id.activity_main_greeting_txt);
-
 
         mNameInput = (EditText) findViewById(R.id.activity_main_name_input);
         mPlayBtn = (Button) findViewById(R.id.activity_main_play_btn);
